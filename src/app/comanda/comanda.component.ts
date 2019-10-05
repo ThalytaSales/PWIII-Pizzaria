@@ -17,15 +17,46 @@ export class ComandaComponent implements OnInit {
 
       this.formComanda = this.formBuilder.group({
 
-          chopp : this.formBuilder.control(''),
-          pizzas : this.formBuilder.control(''),
-          recheios : this.formBuilder.control(''),
-          pessoas : this.formBuilder.control('') 
-
+          inChopp : this.formBuilder.control(''),
+          inPizzas : this.formBuilder.control(''),
+          inRecheios : this.formBuilder.control(''),
+          inPessoas : this.formBuilder.control(''), 
+          inServico : this.formBuilder.control(true)
 
       })
 
+     
 
+
+  }
+
+  onProcessar () {
+    let inChopp = this.formComanda.value;
+    let inPizzas = this.formComanda.value;
+    let inRecheios = this.formComanda.value;
+    let inPessoas = this.formComanda.value;
+    let inServico = this.formComanda.value;
+    let consumo = inChopp*7.30 + inPizzas*31.50 + inRecheios*5.90;
+    let servico = consumo / 10;
+    let vtotal = consumo + servico;
+    let vtotal2 = servico;
+    let servico1 = 0;
+    let ppesoa = vtotal / inPessoas;
+
+
+    if(inServico ) {
+      alert("Consumo: " +  consumo +
+      "\nServiços: " + servico +
+      "\nTotal :" + vtotal +
+      "\nPor Pessoa :" + ppesoa )
+    }
+      else { 
+
+        alert("Consumo: " +  consumo +
+        "\nServiços: " + servico1 +
+        "\nTotal :" + vtotal2 +
+        "\nPor Pessoa :" + ppesoa )
+      }
   }
 
 }
