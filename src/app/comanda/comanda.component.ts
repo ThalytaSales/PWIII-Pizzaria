@@ -22,20 +22,16 @@ export class ComandaComponent implements OnInit {
           inRecheios : this.formBuilder.control(''),
           inPessoas : this.formBuilder.control(''), 
           inServico : this.formBuilder.control(true)
-
       })
-
-     
-
 
   }
 
   onProcessar () {
-    let inChopp = this.formComanda.value;
-    let inPizzas = this.formComanda.value;
-    let inRecheios = this.formComanda.value;
-    let inPessoas = this.formComanda.value;
-    let inServico = this.formComanda.value;
+    let inChopp = this.formComanda.value.inChopp;
+    let inPizzas = this.formComanda.value.inPizzas;
+    let inRecheios = this.formComanda.value.inRecheios;
+    let inPessoas = this.formComanda.value.inPessoas;
+    let inServico = this.formComanda.value.inServico;
     let consumo = inChopp*7.30 + inPizzas*31.50 + inRecheios*5.90;
     let servico = consumo / 10;
     let vtotal = consumo + servico;
@@ -48,15 +44,17 @@ export class ComandaComponent implements OnInit {
       alert("Consumo: " +  consumo +
       "\nServiços: " + servico +
       "\nTotal :" + vtotal +
-      "\nPor Pessoa :" + ppesoa )
+      "\nPor Pessoa :" + ppesoa );
     }
       else { 
 
         alert("Consumo: " +  consumo +
         "\nServiços: " + servico1 +
         "\nTotal :" + vtotal2 +
-        "\nPor Pessoa :" + ppesoa )
+        "\nPor Pessoa :" + ppesoa );
       }
   }
+
+
 
 }
